@@ -17,9 +17,6 @@ INCLUDES = -IInclude
 OUTDIR = build
 # SOURCES: list of input source sources
 SOURCES = button.c counter.c countled.c gpio.c main.c systick.c tm4c123gh6pm_startup_ccs_gcc.c
-# Tiva Makefile
-TIVAWARE_PATH = /home/aske/Documents/SDU/4/EMB/Tiva
-# TIVAWARE_PATH = /opt/ccstudio/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include
 
 # LD_SCRIPT: linker script
 LD_SCRIPT = $(MCU).lds
@@ -27,7 +24,7 @@ LD_SCRIPT = $(MCU).lds
 # define flags
 CFLAGS = -g -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp
 CFLAGS +=-O0 -MD -std=c99 -Wall -ffunction-sections -fdata-sections 
-CFLAGS += -pedantic -DPART_$(MCU) -c #-I$(TIVAWARE_PATH)#-I$(INC_PATH)
+CFLAGS += -pedantic -DPART_$(MCU) -c 
 CFLAGS += -DTARGET_IS_BLIZZARD_RA1
 LDFLAGS = -T $(LD_SCRIPT) --entry ResetISR --gc-sections
 
